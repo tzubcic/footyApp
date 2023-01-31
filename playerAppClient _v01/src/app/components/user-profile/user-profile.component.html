@@ -1,0 +1,47 @@
+<app-nav-bar></app-nav-bar>
+
+
+
+<div *ngIf="currentUser && !currentTeam" class="notPlayed">
+  <h1>{{currentUser.teamName}} has no played matches currently</h1>
+  <mat-list>
+    <mat-list-item>User: {{currentUser.username}}</mat-list-item>
+  </mat-list>
+  <mat-list>
+    <mat-list-item>User email: {{currentUser.email}}</mat-list-item>
+  </mat-list>
+  <mat-list>
+    <mat-list-item>Team Name: {{currentUser.teamName}}</mat-list-item>
+  </mat-list>
+</div>
+
+
+<div [@fadeIn] class="userProfileCard" *ngIf="currentUser && currentTeam">
+  <mat-card class="user-card">
+    <mat-card-header>
+      <mat-card-title><h1> User: {{currentUser.username}}</h1></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>User email: {{currentUser.email}}</mat-list-item>
+      </mat-list>
+      <mat-list>
+        <mat-list-item>Team Name: {{currentUser.teamName}}</mat-list-item>
+      </mat-list>
+
+      <mat-list>
+        <mat-list-item>Wins: {{currentTeam['win']}}</mat-list-item>
+      </mat-list>
+
+      <mat-list>
+        <mat-list-item>Loses: {{currentTeam.lost}}</mat-list-item>
+      </mat-list>
+
+      <mat-list>
+        <mat-list-item>Draws: {{currentTeam.draw}}</mat-list-item>
+      </mat-list>
+
+
+    </mat-card-content>
+  </mat-card>
+</div>

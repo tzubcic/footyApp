@@ -1,0 +1,35 @@
+<h1 style="text-align: center">Register page</h1>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username">
+        <mat-hint *ngIf="registerForm.controls['username'].errors?.['required']">Username is required</mat-hint>
+        <mat-hint *ngIf="registerForm.controls['username'].errors?.['minlength']">Username must be at least 5 characters</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-hint *ngIf="registerForm.controls['email'].errors?.['required']">Email is required</mat-hint>
+        <mat-hint *ngIf="registerForm.controls['email'].errors?.['email']">Email is invalid</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="password">
+        <mat-hint *ngIf="registerForm.controls['password'].errors?.['required']">Password is required</mat-hint>
+        <mat-hint *ngIf="registerForm.controls['password'].errors?.['minlength']">Password must be at least 4 characters</mat-hint>
+      </mat-form-field>
+
+<!--      team name-->
+      <mat-form-field>
+        <input matInput placeholder="Team Name" formControlName="teamName">
+        <mat-hint *ngIf="registerForm.controls['teamName'].errors?.['required']">Team Name is required</mat-hint>
+      </mat-form-field>
+
+      <mat-hint style="color: red" *ngIf="errorMessage">{{errorMessage}}</mat-hint>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Register</button>
+
+    </div>
+</form>

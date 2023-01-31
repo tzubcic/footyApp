@@ -1,0 +1,83 @@
+
+.card {
+  width: 80%;
+  max-width: 80%;
+  margin-top: 2%;
+}
+
+.main-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 300px;
+  height: 350px;
+  background-color: #4285f4;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px #888888;
+}
+
+mat-card-title,
+mat-card-subtitle {
+  color: white;
+}
+
+.card mat-card-content p {
+  color: white;
+}
+
+.card{
+  background-image: url('src/assets/genericPlayer.jpg');
+}
+
+.attack{
+  background-color: #f4b400;
+}
+
+.defense{
+  background-color: #4285f4;
+}
+
+.attack-defense {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+mat-card-subtitle.position {
+  position: relative;
+}
+
+mat-card-subtitle.position::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: -10px;
+  left: -30px;
+}
+
+mat-card-subtitle.position.GK::before {
+  background-color: greenyellow;
+}
+
+mat-card-subtitle.position.DF::before {
+  background-color: yellow;
+}
+
+mat-card-subtitle.position.MF::before {
+  background-color: cadetblue;
+}
+
+mat-card-subtitle.position.FW::before {
+  background-color: red;
+}

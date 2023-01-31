@@ -1,0 +1,95 @@
+*{
+  line-height: 1.5;
+}
+
+
+/* Body */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Links */
+a {
+  color: #0069d9;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  margin-top: 70px;
+}
+
+/* Navigation */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.16);
+  padding: 1rem 2rem;
+}
+
+.navbar a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-right: 1rem;
+  color: #333;
+}
+
+.navbar a:hover {
+  color: #0069d9;
+}
+
+/* Jumbotron */
+.jumbotron {
+  background-color: #f5f5f5;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.16);
+}
+
+/* Jumbotron Headings */
+.jumbotron h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.jumbotron p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+/* Jumbotron Button */
+.jumbotron .btn {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 0.3rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.jumbotron .btn:hover {
+  background-color: #0069d9;
+  color: white;
+  text-decoration: none;
+}
+

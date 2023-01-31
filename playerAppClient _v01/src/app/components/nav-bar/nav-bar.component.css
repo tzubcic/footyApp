@@ -1,0 +1,17 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-flat-button  {
+  margin-left: 20px;
+}
+
+.mat-flat-button:hover {
+  transition: 0.75s;
+  color: #673ab7;
+  background-color: white;
+}
+
+.homeLink:hover {
+  cursor: pointer;
+}
+

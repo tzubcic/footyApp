@@ -1,0 +1,39 @@
+<app-nav-bar></app-nav-bar>
+
+<div [@fadeIn] *ngIf="teamsInLeagueDataSource" style="width: 50%">
+  <mat-table [dataSource]="teamsInLeagueDataSource | sort:sortKey:sortOrder">
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    <ng-container matColumnDef="team">
+      <mat-header-cell *matHeaderCellDef> Team </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.teamName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="played">
+      <mat-header-cell (click)="sortKey = 'played'; sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'" *matHeaderCellDef> Played </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.played}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="win">
+      <mat-header-cell  (click)="sortKey = 'win'; sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'" *matHeaderCellDef> Win </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.win}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="draw">
+      <mat-header-cell  (click)="sortKey = 'draw'; sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'" *matHeaderCellDef> Draw </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.draw}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lost">
+      <mat-header-cell  (click)="sortKey = 'lost'; sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'" *matHeaderCellDef> Lost </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.lost}} </mat-cell>
+    </ng-container>
+
+  <ng-container matColumnDef="points">
+      <mat-header-cell  (click)="sortKey = 'points'; sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'" *matHeaderCellDef> Points </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.points}} </mat-cell>
+  </ng-container>
+
+  </mat-table>
+</div>

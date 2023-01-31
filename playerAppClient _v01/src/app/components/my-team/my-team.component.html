@@ -1,0 +1,109 @@
+<app-nav-bar></app-nav-bar>
+
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+  <mat-spinner style="top:50%;left:50%"></mat-spinner>
+</div>
+
+<div [@fadeInHeading] class="heading">
+  <h1>Available players to add to the team</h1>
+</div>
+
+<div *ngIf="playerDataSource" [@fadeIn]>
+  <mat-table [dataSource]="playerDataSource" class="playersTable">
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element._id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div class="position-container position-{{element.position}}">
+          {{element.position}}
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="attack">
+      <mat-header-cell *matHeaderCellDef> Attack </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.attack}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="defense">
+      <mat-header-cell *matHeaderCellDef> Defense </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.defense}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" (click)="addPlayerToTeam(element._id)">Add</button>
+      </mat-cell>
+    </ng-container>
+
+  </mat-table>
+</div>
+
+<div *ngIf="playerMyTeamDataSource.length > 0">
+<div [@fadeInHeading] class="heading">
+  <h1>Players currently on my team {{currentUser}}</h1>
+</div>
+<div *ngIf="playerMyTeamDataSource" [@fadeIn]>
+  <mat-table [dataSource]="playerMyTeamDataSource">
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element._id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div class="position-container position-{{element.position}}">
+          {{element.position}}
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="attack">
+      <mat-header-cell *matHeaderCellDef> Attack </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.attack}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="defense">
+      <mat-header-cell *matHeaderCellDef> Defense </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.defense}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" (click)="removePlayerFromTeam(element._id)">Remove</button>
+      </mat-cell>
+    </ng-container>
+
+  </mat-table>
+</div>
+</div>
+
+<div *ngIf="playerMyTeamDataSource.length === 0">
+  <div [@fadeInHeading] class="heading">
+    <h1>Please add some players</h1>
+  </div>
+</div>
+

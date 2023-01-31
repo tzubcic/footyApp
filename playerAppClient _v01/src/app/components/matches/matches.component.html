@@ -1,0 +1,74 @@
+<app-nav-bar></app-nav-bar>
+
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+  <mat-spinner style="top:50%;left:50%"></mat-spinner>
+</div>
+
+<div [@fadeIn] style="width: 50%; margin-left: 25%">
+  <mat-card *ngFor="let match of matchesDataSource" style=" margin: 30px 0">
+    <mat-card-header>
+      <mat-card-title>{{match.homeTeam}} - {{match.awayTeam}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Score: {{match.homeScore}} - {{match.awayScore}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<mat-card>
+  <mat-card-content>
+    <button mat-raised-button color="primary" (click)="clickShowMatchForm()">Add match</button>
+  </mat-card-content>
+</mat-card>
+
+
+<div class="formMatch">
+  <mat-card [@showForm] *ngIf="showAddMatchForm">
+    <mat-card-header style="justify-content: center">
+      <mat-card-title>Add Match</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="container">
+      <form [formGroup]="addMatchForm" (ngSubmit)="addMatch()">
+        <mat-form-field>
+          <mat-label>Home Team</mat-label>
+          <mat-select formControlName="homeTeam">
+            <mat-option *ngFor="let user of userTeamDataSource" [value]="user._id">{{user.teamName}}</mat-option>
+          </mat-select>
+
+          <mat-hint *ngIf="addMatchForm.get('homeTeam')!.errors && addMatchForm.controls['homeTeam'].touched">Home team is required</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Away Team</mat-label>
+          <mat-select formControlName="awayTeam">
+            <mat-option *ngFor="let user of userTeamDataSource" [value]="user._id">{{user.teamName}}</mat-option>
+          </mat-select>
+
+          <mat-hint *ngIf="addMatchForm.get('awayTeam')!.errors && addMatchForm.controls['awayTeam'].touched">Away team is required</mat-hint>
+
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Home Score" type="number" formControlName="homeScore">
+          <mat-hint *ngIf="addMatchForm.get('homeScore')!.errors && addMatchForm.controls['homeScore'].touched">Score is required</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Away Score" type="number" formControlName="awayScore">
+          <mat-hint *ngIf="addMatchForm.get('awayScore')!.errors && addMatchForm.controls['awayScore'].touched">Score is required</mat-hint>
+        </mat-form-field>
+
+        <p>
+          <mat-hint style="color: red" *ngIf="addMatchForm.hasError('teamsNotMatching') && addMatchForm.controls['homeTeam'].touched">Please select different teams playing against each other!</mat-hint>
+        </p>
+
+
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit">Add Match</button>
+          <button mat-raised-button color="warn" type="button" (click)="cancelAddMatch()">Cancel</button>
+        </div>
+
+      </form>
+</mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,49 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+
+.container > * {
+  width: 40%;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10px;
+  width: 100%;
+}
+
+
+.formMatch{
+  border-radius: 8px;
+  border: 0px solid rebeccapurple;
+  width: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.borderForm{
+  border: 5px solid rebeccapurple;
+}
+
+.loader-container{
+  position: absolute;
+  height: 120%;
+  width: 100%;
+  background-color:  black;
+  z-index: 99;
+}
+
+button:hover {
+  background-color: #4285f4;
+  color: white;
+}

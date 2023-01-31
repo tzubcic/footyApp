@@ -1,0 +1,41 @@
+<app-nav-bar></app-nav-bar>
+
+
+  <div [@fadeIn] class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron" *ngIf="!isAdmin">
+          <h1 class="display-3">Hello, {{user.username}}!</h1>
+          <br>
+          <p class="lead">This is a simple player management app. You are currently registered as a regular user (not admin)</p>
+          <hr class="my-4">
+          <ol>
+            <li><p>Each user can choose the player he wants to add to his team list.</p></li>
+            <li><p>To add some players to your team click on the <b>MyTeam</b> button on the navigation tab</p></li>
+            <li><p>To view your general team information go to <b>Profile</b></p></li>
+            <li><p>To checkout how your team is performing look at the <b>League Table</b></p></li>
+          </ol>
+
+        </div>
+
+        <div class="jumbotron" *ngIf="isAdmin">
+          <h1 class="display-3">Hello administrator {{user.username}}!</h1>
+          <br>
+          <p class="lead">This is a simple player management app.</p>
+          <hr class="my-4">
+
+          <ol>
+            <li>
+              <p>To check out the list of user please click on the <b>Users</b> button</p>
+            </li>
+            <li>
+              <p>To navigate to the Player section where you can CREATE, EDIT and DELETE the players, please use the <b>Players</b> button</p>
+            </li>
+            <li>
+              <p>To create matches and see a list of played matches visit the  <b>Matches</b> button</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>

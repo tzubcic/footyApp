@@ -1,0 +1,16 @@
+
+<app-nav-bar></app-nav-bar>
+
+<div [@fadeIn] *ngIf="player" class="main-div">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>{{player.name}}</mat-card-title>
+      <mat-card-subtitle class="position {{player.position}}">{{player.position}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p class="attack-defense attack">ATT: {{player.attack}}</p>
+      <p class="attack-defense defense">DEF: {{player.defense}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

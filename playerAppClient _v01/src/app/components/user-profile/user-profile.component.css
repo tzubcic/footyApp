@@ -1,0 +1,22 @@
+.userProfileCard{
+  margin: 0 auto;
+}
+
+.user-card{
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+.notPlayed{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #f5f5f5;
+}

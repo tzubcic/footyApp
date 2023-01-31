@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span routerLink="/home" class="homeLink">FootyApp </span>
+    <span class="example-spacer"></span>
+    <a *ngIf="isAdmin" color="primary" mat-flat-button style="margin-left: 20px;"  routerLink="/users">Users</a>
+
+    <a *ngIf="isAdmin" color="primary" mat-flat-button  routerLink="/players">Players</a>
+
+    <a *ngIf="isAdmin" color="primary" mat-flat-button routerLink="/matches">Matches</a>
+
+    <a *ngIf="!isAdmin" color="primary" mat-flat-button routerLink="/myTeam">MyTeam</a>
+    <a *ngIf="!isAdmin" color="primary" mat-flat-button routerLink="/userProfile">Profile</a>
+
+    <a mat-flat-button color="primary" routerLink="/leagueTable">League Table</a>
+    <a mat-button (click)="logout()" >Logout</a>
+    <a>{{currentUser}}</a>
+
+  </mat-toolbar-row>
+</mat-toolbar>
