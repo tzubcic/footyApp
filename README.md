@@ -1,6 +1,6 @@
 # footyApp
 
-MEAN stack application for college class project.
+MEAN stack application for a college class project.
 
 ![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)
 
